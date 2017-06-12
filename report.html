@@ -13147,6 +13147,7 @@ $$ F_{\beta} = (1 + \beta^2) \cdot \frac{precision \cdot recall}{\left( \beta^2 
 <li>models which are expecting categorical input are suitable </li>
 </ul>
 <p>Model: <strong>Logistic Regression</strong>
+<a href="https://en.wikipedia.org/wiki/Logistic_regression">https://en.wikipedia.org/wiki/Logistic_regression</a>
 Logistic regression is a regression model where the dependent variable (DV) is categorical. It may be used to predict whether a patient has a given disease (e.g. diabetes; coronary heart disease), based on observed characteristics of the patient (age, sex, body mass index, results of various blood tests, etc.). Business application would be to predict the likelihood of a homeowner defaulting on a mortgage or predicting the crime rate of a states based on drug usage, number of gangs...</p>
 <p>As a real world example I like "Using Binary Logistic Regression to Investigate High Employee Turnover". Algorithm is used to identify the reason of the suden rise of the attrition in a company. They collected basic data about each of the new hires, including the employee’s gender, position, pay classification, shift worked, prior years of manufacturing experience, and length of commute.
 <a href="http://blog.minitab.com/blog/real-world-quality-improvement/using-binary-logistic-regression-to-investigate-high-employee-turnover">http://blog.minitab.com/blog/real-world-quality-improvement/using-binary-logistic-regression-to-investigate-high-employee-turnover</a>. They found out the reason was a distance to commute.</p>
@@ -13160,7 +13161,8 @@ e) fits to all requirements mentioned above</p>
 <p>a) Relevant independet variable must be properly identified otherwise the model doesn't work</p>
 <p>b) Works well for categorical outcomes. Continues data must be converted into categorical. For example: by splitting them into intervals. This sacrifices the precision.</p>
 <p>c) Major disadvantage: <strong><em>"Logistic regression requires that each data point be independent of all other data points.</em></strong> <em>If observations are related to one another, then the model will tend to overweight the significance of those observations. This is a major disadvantage, because a lot of scientific and social-scientific research relies on research techniques involving multiple observations of the same individuals. For example, drug trials often use matched pair designs that compare two similar individuals, one taking a drug and the other taking a placebo. Logistic regression is not an appropriate technique for studies using this design."</em></p>
-<p>d) Logistic regression models are vulnerable to overfitting, but not so much as</p>
+<p>d) Logistic regression models are vulnerable to overfitting, but not as much as decision trees
+<a href="https://www.quora.com/What-are-the-advantages-of-logistic-regression-over-decision-trees">https://www.quora.com/What-are-the-advantages-of-logistic-regression-over-decision-trees</a></p>
 <p>I have chosen this model because it is good for solving categorical problems, I am able to define relevant dependent variables. I need to separate datapoints with two possible outcomes for 'income' and this is what logistic regression does.</p>
 <p>Model: <strong>Decision Trees</strong><br>
 Decision Tree model is easy to understand because it mimics human behaviour very closely. Using decision tree classifier we can quickly identify most important features.</p>
@@ -13175,7 +13177,8 @@ Object recognition: Tree based classification has been used recently for recogni
 <a href="http://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/">http://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/</a>
 Gradient boosting can be used anywhere where decision trees are used. 
 It is still quite easy to understand. It si possible to investigate the partial results and understand insights of the model.</p>
-<p>Disadvantage is that it can consume more computing time and needs more parameters to be tuned in a search for optimal model. 
+<p><a href="https://www.quora.com/What-are-the-advantages-disadvantages-of-using-Gradient-Boosting-over-Random-Forests">https://www.quora.com/What-are-the-advantages-disadvantages-of-using-Gradient-Boosting-over-Random-Forests</a>
+Disadvantage is that it can consume more computing time and needs more parameters to be tuned in a search for optimal model. 
 There are usualy three parameters to tune: number of trees, maximal depth of the trees and learning rate.</p>
 <p>Realworld example: "Smart City Mobility Application—Gradient Boosting Trees for Mobility Prediction and Analysis Based on Crowdsourced Data"
 <a href="http://www.mdpi.com/1424-8220/15/7/15974/pdf">http://www.mdpi.com/1424-8220/15/7/15974/pdf</a></p>
@@ -13184,6 +13187,12 @@ There are usualy three parameters to tune: number of trees, maximal depth of the
 media.nips.cc/Conferences/2007/.../schapire-NIPS-07-tutorial.pdf
 <a href="https://www.researchgate.net/publication/259653472_Gradient_Boosting_Machines_A_Tutorial">https://www.researchgate.net/publication/259653472_Gradient_Boosting_Machines_A_Tutorial</a></p>
 <p>It is a good candidate because it is enhacement of the Decision Tree and will compensate the weaknesses of decision trees.</p>
+<p>Resources recommended by 1st reviewer:</p>
+<p><a href="http://classroom.synonym.com/disadvantages-logistic-regression-8574447.html">http://classroom.synonym.com/disadvantages-logistic-regression-8574447.html</a>
+<a href="http://www.biostathandbook.com/simplelogistic.html">http://www.biostathandbook.com/simplelogistic.html</a>
+<a href="https://stackoverflow.com/questions/10317885/decision-tree-vs-naive-bayes-classifier">https://stackoverflow.com/questions/10317885/decision-tree-vs-naive-bayes-classifier</a>
+<a href="http://www.simafore.com/blog/bid/62333/4-key-advantages-of-using-decision-trees-for-predictive-analytics">http://www.simafore.com/blog/bid/62333/4-key-advantages-of-using-decision-trees-for-predictive-analytics</a>
+<a href="http://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/">http://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/</a></p>
 
 </div>
 </div>
@@ -14895,9 +14904,51 @@ I assume data points might response following corellation:</p>
 </tr>
 </tbody>
 </table>
-<p>Why occupation didn't even make the top 5?
+<p>Why 'occupation' didn't even make the top 5?
 ocuppation () was on the 7th place, which is still good estimation
 but has been surpassed by other features which corellate more with target variable.</p>
+<p><strong><em> Addition 2:</em></strong>
+I am trying to satisfy following comment from the 2nd reviewer: <em>'Well done analysing correlations, what is required here though is more an intuitive rationale about why you think that the feature you have missed a relevant.'</em></p>
+<p>In a question 6. I have presented a hypothesis about feature importance. Here is it again.</p>
+<p>capital-gain: - I understand this as an ability to accumulate capital
+age: - age should correlate with income, because of more experience, better paid jobs
+education: - higher education traditionally corellates with higher income
+occupation: - I assume, thad there are industries which are better paid than the others
+marital-status: this is my estimation based on statistics that people with families in average tend to make more effort to find better payed jobs
+capital-loss:
+workclass: 
+hours-per-week:
+native-country: 
+relationship:
+race:
+sex:
+fnlwgt:
+education-num:</p>
+<p>result for Top 10 places is:
+[ 1]  0.1409  marital-status<em> Married-civ-spouse
+[ 2]  0.1291  capital-loss
+[ 3]  0.1023  age
+[ 4]  0.0965  education-num
+[ 5]  0.0885  capital-gain
+[ 6]  0.0594  hours-per-week
+[ 7]  0.0352  occupation</em> Exec-managerial
+[ 8]  0.0351  relationship<em> Husband
+[ 9]  0.0245  sex</em> Male
+[10]  0.0243  workclass_ Local-gov</p>
+<p>The sequence is based on my experience and statistics I know. Rationale for the first five features is stated. Of course, to decide if a feature should be on the positin 2 or three is a pure guess. 
+If we want to speculate why my assumptions are different from results than there are more reasons available:</p>
+<ul>
+<li>world is different as I assumed</li>
+<li>data can be specific in time they were collected</li>
+<li>bias in data can be influeced by features which are not listed. A good example for it is in following paper:
+<a href="http://blog.minitab.com/blog/real-world-quality-improvement/using-binary-logistic-regression-to-investigate-high-employee-turnover">http://blog.minitab.com/blog/real-world-quality-improvement/using-binary-logistic-regression-to-investigate-high-employee-turnover</a>. They were looking for the reasons of high attrition. They found the reason is time spent on commuting. But this 'disadvantage' has been know also in a time they were hired. Why it become important later? Answer is that in recession time people tent to take jobs with some disadvantages, but tend to look for better jobs if the situation on the market is better.</li>
+</ul>
+<p>Supprise for me is that the feature 'marital-status_ Married-civ-spouse' is on the first place
+Compared to my 5th place. As this data are collected in 1994, it would be interesting to collect data again and see if it is still on the first place, to see if rich guys are (almost) always married. Or is it about that married guys earn more? (as I stated in my assuptions)</p>
+<p>Honestly, I don't know why 'capital-loss' is on the second place. Maybe, guys who are consuming their property, they are satisfying they needs from other sources, don't make an effort required by better paid jobs.</p>
+<p>Age, education-num, shows quite expected result that older == experienced people and more educated people usualy get better paid jobs. In the real world where guys are earning lot of money without special educations are statisticaly not relevant comparing to the standard population.</p>
+<p>Why capital-gain is not on the top? The result shows that more people with higher income prefer to spent money before making an investment.</p>
+<p>Howgh.</p>
 
 </div>
 </div>
